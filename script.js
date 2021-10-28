@@ -50,9 +50,9 @@ async function handlePage(page, request){
 }
 
 async function searchApi(){
- var googleData = await axios.get("https://google.com");
-console.log(googleData.data);
- return;
+// var googleData = await axios.get("https://google.com");
+//console.log(googleData.data);
+// return;
   var pageCount = 1;
   var request = {
     q : "Free shipping",
