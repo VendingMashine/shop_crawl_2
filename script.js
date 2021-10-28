@@ -1,5 +1,3 @@
-
-var request_lib = require()
 const fs = requrie("fs")
 const axios = require("axios")
 var result = "["
@@ -24,8 +22,9 @@ async function writeOut(){
 
 
 async function handlePage(page, request){
-  
-   var results = []
+   request.page = page
+   var result = await instance.get("/webSearch", { params : request })
+   var results = result.data.value;
    for(var i = 0; i < results.length;i++){
         var r = results[i];
         console.log("Saving ", r.url);
