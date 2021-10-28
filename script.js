@@ -6,8 +6,11 @@ var query = process.argv[3] ? process.argv[3] : "Free shipping shop";
 //x-RapidApi-Host
 //x-RapidAPI-Key
 var request = require("request")
-var prev = require("./out.json")
-
+var prev = []
+var path = "./out.json"
+if (fs.existsSync(path)) {
+ prev = require(path)
+}
 const instance = axios.create({
   timeout : 500000,
   baseURL : "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search",
