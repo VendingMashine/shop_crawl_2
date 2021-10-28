@@ -2,7 +2,7 @@ const fs = require("fs")
 const axios = require("axios")
 var result = "["
 var pageSkip = process.argv[2] ? parseInt(process.argv[2]) : 0;
-
+var query = process.argv[3] ? process.argv[3] : "Free shipping shop";
 //x-RapidApi-Host
 //x-RapidAPI-Key
 
@@ -55,7 +55,7 @@ async function searchApi(){
 // return;
   var pageCount = 1;
   var request = {
-    q : "Free shipping",
+    q : query,
     pageSize : 20
   }
   
