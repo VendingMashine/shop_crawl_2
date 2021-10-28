@@ -63,7 +63,7 @@ async function searchApi(){
     q : query,
     pageSize : 20
   }
-  
+  console.log("Performing Query", request)
   try {
   for(var i = 0; i < pageCount;i++){
        var pageData = await handlePage(i + 1, request)
