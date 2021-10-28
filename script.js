@@ -9,7 +9,11 @@ var result = "["
 
 const instance = axios.create({
   timeout : 1000,
-  baseURL : ""
+  baseURL : "",
+  headers : {
+    'X-RapidAPI-Key' : '',
+    'X-RapidAPI-Host' : '',
+  }
 });
 
 
@@ -46,7 +50,7 @@ async function searchApi(){
        var pageData = await handlePage(i + 1, request)
        
        var strEntry = JSON.stringify(pageData).replace("[", "")
-       .replace("[", "")
+       .replace("]", "")
        result += strEntry;
        //process entry and add to string
   }
@@ -55,7 +59,7 @@ async function searchApi(){
   }
   
   result += "]"
-  
+  //writeOut()
   
 }
 
