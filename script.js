@@ -72,7 +72,7 @@ async function searchApi(){
   var pageCount = 1;
   var request = {
     q : query,
-    pageSize : 20
+    pageSize : 40
   }
   console.log("Performing Query", request)
   try {
