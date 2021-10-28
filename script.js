@@ -36,7 +36,7 @@ async function handlePage(page, request){
         var r = result.data.value[i];
         var webPage = await axios.get(r.url);
         
-        if(!webPage.includes("shopify"))
+        if(!webPage.data.includes("shopify"))
          continue;
        
         console.log("Saving ", r.url);
