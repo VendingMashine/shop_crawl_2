@@ -70,7 +70,7 @@ async function searchApi(){
 // var googleData = await axios.get("https://google.com");
 //console.log(googleData.data);
 // return;
-  var pageCount = 1;
+  var pageCount = 10;
   var request = {
     q : query,
     pageSize : 40
