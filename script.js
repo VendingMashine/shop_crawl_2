@@ -1,4 +1,4 @@
-const fs = requrie("fs")
+const fs = require("fs")
 const axios = require("axios")
 var result = "["
 
