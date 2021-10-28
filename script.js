@@ -17,7 +17,7 @@ const instance = axios.create({
 
 
 async function writeOut(){
-  fs.writeFileSync("./out.json", result)  
+  fs.writeFileSync("./out."+ (new Date()).getTime() + ".json", result)  
 }
 
 function sleep(seconds){
@@ -34,7 +34,8 @@ async function handlePage(page, request){
    var results = [];
    for(var i = 0; i < result.data.value.length;i++){
         var r = result.data.value[i];
-        var webPage = await axios.get(r.url);
+        try {
+        var webPage = await axios.get(r.url, {}, { timeout : 5 * 1000});
         console.log("Checking -> ", r.url)
         if(!webPage.data.includes("shopify"))
          continue;
@@ -44,6 +45,9 @@ async function handlePage(page, request){
           name :  r.title,
           url : r.url
         })
+        } catch(e) {
+          console.log("Failed to load", r.url);  
+        }
    }
   
    return results
