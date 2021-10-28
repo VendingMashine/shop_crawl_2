@@ -1,6 +1,7 @@
 const fs = require("fs")
 const axios = require("axios")
 var result = "["
+var pageSkip = process.argv[2] ? parseInt(process.argv[2]) : 0;
 
 //x-RapidApi-Host
 //x-RapidAPI-Key
@@ -28,7 +29,7 @@ function sleep(seconds){
 }
 
 async function handlePage(page, request){
-   request.page = page
+   request.page = page + pageSkip
    var result = await instance.get("/WebSearchAPI", { params : request })
    var results = [];
    for(var i = 0; i < result.data.value.length;i++){
