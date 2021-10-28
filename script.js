@@ -6,6 +6,7 @@ var query = process.argv[3] ? process.argv[3] : "Free shipping shop";
 //x-RapidApi-Host
 //x-RapidAPI-Key
 var request = require("request")
+var prev = require("./out.json")
 
 const instance = axios.create({
   timeout : 500000,
@@ -18,7 +19,7 @@ const instance = axios.create({
 
 
 async function writeOut(){
-  fs.writeFileSync("./out."+ (new Date()).getTime() + ".json", result)  
+  fs.writeFileSync("./out.json", result)  
 }
 
 function sleep(seconds){
@@ -91,6 +92,8 @@ async function searchApi(){
   }
   
   result += "]"
+  var prsd = JSON.parse(result)
+  result = JSON.stringify (prev.concat(prsd))
   writeOut()
   
 }
