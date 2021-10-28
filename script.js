@@ -33,7 +33,7 @@ function checkShop(url){
   return new Promise((resolve, reject) => {
      request({ uri : url },(error, response, body) => {
         if(error) return reject(error);
-       resolve(body.includes("shopify"));
+        resolve(body.includes("shopify"));
      })
   });
 }
@@ -47,9 +47,9 @@ async function handlePage(page, request){
         try {
         console.log("Checking ->", r.url)
         var webPage = await checkShop(r.url)
-        console.log(webPage);
-         break;
-        if(!webPage.data.includes("shopify"))
+        //console.log(webPage);
+        
+        if(!webPage)
          continue;
        
         console.log("Saving ", r.url);
