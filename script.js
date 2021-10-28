@@ -7,7 +7,7 @@ var result = "["
 
 const instance = axios.create({
   timeout : 1000,
-  baseURL : "",
+  baseURL : "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search",
   headers: {
     'x-rapidapi-host': 'contextualwebsearch-websearch-v1.p.rapidapi.com',
     'x-rapidapi-key': 'oK1mVi9mxcmshlRwFxN1OtkX5mA8p1IsWRCjsnJoFSAGamjLNY'
