@@ -39,7 +39,7 @@ function checkShop(url){
 }
 
 async function handlePage(page, request){
-   request.pageNumer = page + pageSkip
+   request.pageNumber = page + pageSkip
    var result = await instance.get("/WebSearchAPI", { params : request })
    var results = [];
    console.log("Processing : ", result.data.value.length);
