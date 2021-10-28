@@ -7,6 +7,11 @@ var result = "["
 //x-RapidApi-Host
 //x-RapidAPI-Key
 
+const instance = axios.create({
+  timeout : 1000,
+  baseURL : ""
+});
+
 
 async function writeOut(){
   fs.writeFileSync("./out.json", result)  
