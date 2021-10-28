@@ -29,7 +29,7 @@ function sleep(seconds){
 
 async function handlePage(page, request){
    request.page = page
-   var result = await instance.get("/webSearch", { params : request })
+   var result = await instance.get("/WebSearchAPI", { params : request })
    var results = result.data.value;
    for(var i = 0; i < results.length;i++){
         var r = results[i];
@@ -46,7 +46,7 @@ async function handlePage(page, request){
 async function searchApi(){
   var pageCount = 1;
   var request = {
-    q : ".myshopify.com",
+    q : "myshopify.com",
     pageSize : 20
   }
   
