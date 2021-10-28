@@ -32,7 +32,8 @@ function sleep(seconds){
 function checkShop(url){
   return new Promise((resolve, reject) => {
      request({ uri : url },(error, response, body) => {
-        console.log(body);  
+        if(error) return reject(error);
+       resolve(body.includes("shopify"));
      })
   });
 }
