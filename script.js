@@ -35,9 +35,14 @@ async function handlePage(page, request){
    for(var i = 0; i < result.data.value.length;i++){
         var r = result.data.value[i];
         try {
-         console.log("Checking ->", r.url)
-        var webPage = await axios.get(r.url, {}, { timeout : 1500});
-        
+        console.log("Checking ->", r.url)
+        var webPage = await axios({
+          url : r.url,
+          method : 'GET',
+          responseType : 'blob',
+        });
+        console.log(webPage);
+         break;
         if(!webPage.data.includes("shopify"))
          continue;
        
