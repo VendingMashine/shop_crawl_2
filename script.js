@@ -19,7 +19,13 @@ async function writeOut(){
   fs.writeFileSync("./out.json", result)  
 }
 
-
+function sleep(seconds){
+ return new Promise((resolve, reject) => {
+    setTimeout(() => {
+        resolve(true)
+    },seconds * 1000);
+}
+}
 
 async function handlePage(page, request){
    request.page = page
@@ -51,6 +57,7 @@ async function searchApi(){
        var strEntry = JSON.stringify(pageData).replace("[", "")
        .replace("]", "")
        result += strEntry;
+       await sleep(2);
        //process entry and add to string
   }
   } catch(e) {
