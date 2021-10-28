@@ -35,8 +35,9 @@ async function handlePage(page, request){
    for(var i = 0; i < result.data.value.length;i++){
         var r = result.data.value[i];
         try {
-        var webPage = await axios.get(r.url, {}, { timeout : 5 * 1000});
-        console.log("Checking -> ", r.url)
+         console.log("Checking ->", r.url)
+        var webPage = await axios.get(r.url, {}, { timeout : 1500});
+        
         if(!webPage.data.includes("shopify"))
          continue;
        
