@@ -45,9 +45,12 @@ async function handlePage(page, request){
 }
 
 async function searchApi(){
+ var googleData = await axios.get("https://google.com");
+console.log(googleData.data);
+ return;
   var pageCount = 1;
   var request = {
-    q : "myshopify.com",
+    q : "Free shipping",
     pageSize : 20
   }
   
