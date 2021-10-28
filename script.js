@@ -30,9 +30,9 @@ function sleep(seconds){
 async function handlePage(page, request){
    request.page = page
    var result = await instance.get("/WebSearchAPI", { params : request })
-   var results = result.data.value;
-   for(var i = 0; i < results.length;i++){
-        var r = results[i];
+   var results = [];
+   for(var i = 0; i < result.data.value.length;i++){
+        var r = result.data.value[i];
         console.log("Saving ", r.url);
         results.push({
           name :  r.title,
@@ -65,7 +65,7 @@ async function searchApi(){
   }
   
   result += "]"
-  //writeOut()
+  writeOut()
   
 }
 
