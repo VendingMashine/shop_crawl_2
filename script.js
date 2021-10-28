@@ -5,6 +5,7 @@ var pageSkip = process.argv[2] ? parseInt(process.argv[2]) : 0;
 var query = process.argv[3] ? process.argv[3] : "Free shipping shop";
 //x-RapidApi-Host
 //x-RapidAPI-Key
+var request = require("request")
 
 const instance = axios.create({
   timeout : 500000,
@@ -28,6 +29,14 @@ function sleep(seconds){
 })
 }
 
+function checkShop(url){
+  return new Promise((resolve, reject) => {
+     request({ uri : url },(error, response, body) => {
+        console.log(body);  
+     })
+  });
+}
+
 async function handlePage(page, request){
    request.page = page + pageSkip
    var result = await instance.get("/WebSearchAPI", { params : request })
@@ -36,11 +45,7 @@ async function handlePage(page, request){
         var r = result.data.value[i];
         try {
         console.log("Checking ->", r.url)
-        var webPage = await axios({
-          url : r.url,
-          method : 'GET',
-          responseType : 'blob',
-        });
+        var webPage = await checkShop(r.url)
         console.log(webPage);
          break;
         if(!webPage.data.includes("shopify"))
