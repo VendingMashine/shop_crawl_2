@@ -24,7 +24,7 @@ function sleep(seconds){
     setTimeout(() => {
         resolve(true)
     },seconds * 1000);
-}
+})
 }
 
 async function handlePage(page, request){
