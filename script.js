@@ -12,6 +12,10 @@ var path = "./out.json"
 if (fs.existsSync(path)) {
  prev = require(path)
 }
+
+var customReq = request.defaults({
+    headers: {'User-Agent': 'Mozilla/5.0 (platform; rv:geckoversion) Gecko/geckotrail Firefox/firefoxversion'}
+})
 const instance = axios.create({
   timeout : 500000,
   baseURL : "https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/Search",
@@ -36,7 +40,7 @@ function sleep(seconds){
 
 function checkShop(url){
   return new Promise((resolve, reject) => {
-     request({ uri : url },(error, response, body) => {
+     customReq({ uri : url },(error, response, body) => {
         if(error) return reject(error);
         console.log(body)
         resolve(body.includes("shopify"));
