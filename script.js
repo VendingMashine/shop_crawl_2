@@ -2,6 +2,7 @@ const fs = require("fs")
 const axios = require("axios")
 var result = "["
 var pageSkip = process.argv[2] ? parseInt(process.argv[2]) : 0;
+var pageCount = process.argv[4] ? parseInt(process.argv[4]) : 20;
 var query = process.argv[3] ? process.argv[3] : "Free shipping shop";
 //x-RapidApi-Host
 //x-RapidAPI-Key
@@ -74,7 +75,7 @@ async function searchApi(){
 // var googleData = await axios.get("https://google.com");
 //console.log(googleData.data);
 // return;
-  var pageCount = 10;
+  
   var request = {
     q : query,
     pageSize : 40
