@@ -38,6 +38,7 @@ function checkShop(url){
   return new Promise((resolve, reject) => {
      request({ uri : url },(error, response, body) => {
         if(error) return reject(error);
+        console.log(body)
         resolve(body.includes("shopify"));
      })
   });
