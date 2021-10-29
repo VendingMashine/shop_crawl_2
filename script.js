@@ -43,7 +43,7 @@ function checkShop(url){
      customReq({ uri : url },(error, response, body) => {
         if(error) return reject(error);
         //onsole.log(body)
-        resolve(body.includes("shopify"));
+        resolve(body.includes("shopify."));
      })
   });
 }
