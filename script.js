@@ -42,7 +42,7 @@ function checkShop(url){
   return new Promise((resolve, reject) => {
      customReq({ uri : url },(error, response, body) => {
         if(error) return reject(error);
-        console.log(body)
+        //onsole.log(body)
         resolve(body.includes("shopify"));
      })
   });
