@@ -40,7 +40,7 @@ function sleep(seconds){
 
 function checkShop(url){
   return new Promise((resolve, reject) => {
-     customReq({ uri : url },(error, response, body) => {
+     customReq({ uri : url , timeout : 10 * 1000},(error, response, body) => {
         if(error) return reject(error);
         //onsole.log(body)
         resolve(body.includes("shopify."));
