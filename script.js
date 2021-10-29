@@ -93,6 +93,7 @@ async function searchApi(){
        
        var strEntry = JSON.stringify(pageData).replace("[", "")
        .replace("]", "")
+       if(i > 0) result +=  ",";
        result += strEntry;
        await sleep(2);
        //process entry and add to string
